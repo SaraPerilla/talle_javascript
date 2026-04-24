@@ -1,4 +1,5 @@
-let nombreCompleto = "" ;
+let nombreCompleto = prompt(Poner su nombre completo) ;
+console.log(nombreCompleto)
 let edad = 0 ;
 let tipoDocumento = "" ;
 let numeroDocumento = "" ;
