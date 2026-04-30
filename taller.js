@@ -1,12 +1,19 @@
 let nombreCompleto = prompt(Poner su nombre completo) ;
 console.log(nombreCompleto)
-let edad = 0 ;
-let tipoDocumento = "" ;
-let numeroDocumento = "" ;
-let salario = 0 ;
-let comisiones = 0 ;
-let horasExtras = 0 ;
-let nivelRiesgo = "" ;
+let edad = 0 ; prompt(Poner su edad) ;
+console.log(edad)
+let tipoDocumento = "" ; prompt(Seleccionar tipo de documento) ;
+console.log(tipoDocumento)
+let numeroDocumento = "" ; prompt(Poner número de documento) ;
+console.log(numeroDocumento)
+let salario = 0 ; prompt(¿Cuánto salario gana?) ;
+console.log(salario)
+let comisiones = 0 ; prompt(¿Cuántas comisones tiene?) ;
+console.log(comisiones)
+let horasExtras = 0 ; prompt(¡Cuánto horas extras hace?) ;
+console.log(horasExtras)
+let nivelRiesgo = "" ; prompt(¿Cuál es su nivel de riesgo?)
+console.log(nivelRiesgo)
 
 if ( edad < 18 ) {
     console.log ("No se puede calcular");
