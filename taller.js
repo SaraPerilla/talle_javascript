@@ -6,11 +6,12 @@ let tipoDocumento = "" ; prompt(Seleccionar tipo de documento) ;
 console.log(tipoDocumento)
 let numeroDocumento = "" ; prompt(Poner número de documento) ;
 console.log(numeroDocumento)
+
 let salario = 0 ; prompt(¿Cuánto salario gana?) ;
 console.log(salario)
 let comisiones = 0 ; prompt(¿Cuántas comisones tiene?) ;
 console.log(comisiones)
-let horasExtras = 0 ; prompt(¡Cuánto horas extras hace?) ;
+let horasExtras = 0 ; prompt(¿Cuánto horas extras hace?) ;
 console.log(horasExtras)
 let nivelRiesgo = "" ; prompt(¿Cuál es su nivel de riesgo?)
 console.log(nivelRiesgo)
