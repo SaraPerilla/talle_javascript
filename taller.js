@@ -10,6 +10,18 @@ let nivelRiesgo = document.getElementById("nivelRiesgo")
 
 let valorEdad = parseInt(edad.value)
 
+if(valorSalario <= 0){
+    console.log("El salario debe ser mayor a 0")
+}
+
+if(valorComisiones > valorSalario){
+    console.log("Las comisiones no pueden ser mayores al salario")
+}
+
+if(valorHorasExtras > 2000000){
+    console.log("Horas extras demasiado altas")
+}
+
 if (valorEdad < 18) {
     console.log ("No se puede calcular");
 } 
@@ -21,6 +33,14 @@ else if ( valorEdad >= 60 ) {
 } 
 else { 
     console.log ("Podrà continuar con el siguiente paso del proceso");
+}
+
+if(nombreCompleto.value.trim().length < 3){
+    console.log("Nombre demasiado corto")
+}
+
+if(nombreCompleto.value.trim() === ""){
+    console.log("El nombre está vacío")
 }
 
 if (isNaN(valorEdad)) {
@@ -45,6 +65,8 @@ if(numeroDocumento.value.length > 10){
    console.log("Documento demasiado largo")
 }
 
+alert("Por favor llene el formulario con su información")
+
 const salarioMinimoLegalV = 1750905 ;
 const salarioMinimoIntegralV = 22761765 ;
 const subsidioTransporte = 249095 ;
@@ -66,8 +88,6 @@ function calcularPorcentaje ( base, porcentaje ) {
 }
 
 
-fondoSolidaridad = IBC >= 4 * salarioMinimoLegalV ? fondoSolidaridad : 0;
-
 let salarioTotal =
 (parseFloat(salario.value) || 0) + (parseFloat(comisiones.value) || 0) + (parseFloat(horasExtras.value) || 0)
 let IBC = calcularPorcentaje ( salarioTotal, porcentajeIBC );
@@ -75,6 +95,24 @@ let fondoSolidaridad = calcularPorcentaje ( IBC, porcentFondoSolidaridad );
 let salud = calcularPorcentaje ( IBC, porcentajeSalud);
 let pension = calcularPorcentaje ( IBC, porcentajePension);
 
+fondoSolidaridad = IBC >= 4 * salarioMinimoLegalV ? fondoSolidaridad : 0;
+
+let formulario = document.querySelector("form")
+
 formulario.addEventListener("submit", function(event){
+
     event.preventDefault()
+
+    let valorSalario = parseFloat(salario.value)
+    let valorComisiones = parseFloat(comisiones.value)
+    let valorHorasExtras = parseFloat(horasExtras.value)
+
+    if(valorComisiones > valorSalario){
+        alert("Las comisiones no pueden ser mayores al salario")
+    }
+
+    if(valorHorasExtras > valorSalario){
+        alert("Las horas extras no pueden ser mayores al salario")
+    }
+
 })
