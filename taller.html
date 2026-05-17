@@ -8,13 +8,13 @@
     </head> 
     
     <body> 
-        <script src="taller.js"></script> 
+        <script src="taller.js" defer></script> 
 
     <form action="">
      <ul>
     <li>
       <label for="nombreCompleto">Nombre:</label>
-      <input type="text" id="nombreCompleto" name="nombreCompleto" minlength="1" maxlength="20" />
+      <input type="text" id="nombreCompleto" name="nombreCompleto" minlength="1" maxlength="50" /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$//>
     </li>
 
      <li>
@@ -24,7 +24,7 @@
 
      <li>
       <label for="tipoDocumento">Nombre:</label>
-        <select name="tipoDocumento" >
+        <select name="tipoDocumento" id="tipoDocumento">
             <option value="RC">Registro Civil</option>
             <option value="TI">TI</option>
             <option value="CC">CC</option>
@@ -35,7 +35,7 @@
 
     <li>
         <label for="numeroDocumento" > Nùmero de Documento: </label>
-        <input type="number" id="numeroDocumento" name="numeroDocumento" minlength="9" maxlength="10" />
+        <input type="text" id="numeroDocumento" name="numeroDocumento" maxlength="10" />
     </li>
 
 <button type="submit">Enviar Formulario</button>

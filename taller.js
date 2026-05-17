@@ -1,24 +1,48 @@
-let nombreCompleto = document.getElementById(nombreCompleto)
-let edad = document.getElementById(edad)
-let tipoDocumento = document.getElementById(tipoDocumento)
-let numeroDocumento = document.getElementById(nombreDocumento)
+let nombreCompleto = document.getElementById("nombreCompleto")
+let edad = document.getElementById("edad")
+let tipoDocumento = document.getElementById("tipoDocumento")
+let numeroDocumento = document.getElementById("numeroDocumento")
 
-let salario = document.getElementById(salario)
-let comisiones = document.getElementById(comisiones)
-let horasExtras = document.getElementById(horasExtras)
-let nivelRiesgo = document.getElementById(nivelRiesgo)
+let salario = document.getElementById("salario")
+let comisiones = document.getElementById("comisiones")
+let horasExtras = document.getElementById("horasExtras")
+let nivelRiesgo = document.getElementById("nivelRiesgo")
 
-if ( edad < 18 ) {
+let valorEdad = parseInt(edad.value)
+
+if (valorEdad < 18) {
     console.log ("No se puede calcular");
 } 
-else if ( edad >= 18 && edad < 25 ) {
+else if ( valorEdad >= 18 && valorEdad < 25 ) {
      console.log ("Usuario beneficiario por cotizante");
 } 
-else if ( edad >= 60 ) {
+else if ( valorEdad >= 60 ) {
     console.log ("Se calcularà la pensiòn");
 } 
 else { 
     console.log ("Podrà continuar con el siguiente paso del proceso");
+}
+
+if (isNaN(valorEdad)) {
+   console.log("Edad inválida")
+}
+
+if(numeroDocumento.value.length < 9){
+   console.log("Documento muy corto")
+}
+
+let regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+if(!regexNombre.test(nombreCompleto.value)){
+    console.log("Nombre inválido")
+}
+
+if(numeroDocumento.value < 0){
+   console.log("Documento inválido")
+}
+
+if(numeroDocumento.value.length > 10){
+   console.log("Documento demasiado largo")
 }
 
 const salarioMinimoLegalV = 1750905 ;
@@ -41,10 +65,16 @@ function calcularPorcentaje ( base, porcentaje ) {
     return base * porcentaje
 }
 
-let fondoSolidaridad = calcularPorcentaje ( IBC, porcentFondoSolidaridad );
-IBC>=4*salarioMinimoLegalV ? fondoSolidaridad : fondoSolidaridad = 0;
 
-let salarioTotal = salario + comisiones + horasExtras ;
+fondoSolidaridad = IBC >= 4 * salarioMinimoLegalV ? fondoSolidaridad : 0;
+
+let salarioTotal =
+(parseFloat(salario.value) || 0) + (parseFloat(comisiones.value) || 0) + (parseFloat(horasExtras.value) || 0)
 let IBC = calcularPorcentaje ( salarioTotal, porcentajeIBC );
+let fondoSolidaridad = calcularPorcentaje ( IBC, porcentFondoSolidaridad );
 let salud = calcularPorcentaje ( IBC, porcentajeSalud);
 let pension = calcularPorcentaje ( IBC, porcentajePension);
+
+formulario.addEventListener("submit", function(event){
+    event.preventDefault()
+})
